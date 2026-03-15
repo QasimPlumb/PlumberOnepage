@@ -8,21 +8,21 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Gastech Plumbing & Heating | Expert Keighley Plumbers | 24/7 Emergency Service",
-  description: "Need a reliable plumber in Keighley? Gastech Plumbing & Heating offers 24/7 emergency repairs, blocked drain clearing, and boiler services. Fast response across West Yorkshire.",
-  keywords: ["Plumber Keighley", "Emergency Plumber Keighley", "Blocked Drains Keighley", "Boiler Repair Keighley", "Plumbing Services West Yorkshire"],
-  authors: [{ name: "Gastech Plumbing & Heating" }],
+  title: "Keighley Emergency Plumber | Fast Local Plumbing Service",
+  description: " Burst pipe or blocked drain in Keighley? Our local plumbers respond fast with fixed pricing and same-day service. Get your free quote now.",
+  keywords: ["Keighley Emergency Plumber", "Local Plumbers Keighley", "Fast Plumbing Service Keighley", "Blocked Drain Keighley", "Burst Pipe Repair Keighley", "Same Day Plumber Keighley", "Fixed Price Plumbing", "24/7 Plumber Keighley"],
+  authors: [{ name: "Keighley Emergency Plumber" }],
   openGraph: {
-    title: "Gastech Plumbing & Heating | Reliable Keighley Plumbers",
-    description: "24/7 Emergency plumbing services in Keighley & surrounding areas. Free quotes & same-day service.",
-    url: "https://gastechplumbing.co.uk",
-    siteName: "Gastech Plumbing & Heating",
+    title: "Keighley Emergency Plumber | Fast Local Plumbing Service",
+    description: " Burst pipe or blocked drain in Keighley? Our local plumbers respond fast with fixed pricing and same-day service. Get your free quote now.",
+    url: "emergencyplumbers247.uk",
+    siteName: "Keighley Emergency Plumber",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Gastech Plumbing & Heating Keighley",
+        alt: "Keighley Emergency Plumber",
       },
     ],
     locale: "en_GB",
@@ -30,12 +30,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gastech Plumbing & Heating | Keighley Plumbers",
-    description: "Reliable 24/7 plumbing services across Keighley. Same-day repairs & emergency support.",
+    title: "Keighley Emergency Plumber | Fast Local Plumbing Service",
+    description: " Burst pipe or blocked drain in Keighley? Our local plumbers respond fast with fixed pricing and same-day service. Get your free quote now.",
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://gastechplumbing.co.uk",
+    canonical: "https://emergencyplumbers247.uk",
   },
   robots: {
     index: true,
@@ -50,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased selection:bg-[#7FD13B]/30">{children}</body>
+      <body className="antialiased selection:bg-[#f06500]/30">{children}</body>
     </html>
   );
 }

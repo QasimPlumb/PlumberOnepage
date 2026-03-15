@@ -2,40 +2,40 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const viewport: Viewport = {
-  themeColor: "#7FD13B",
+  themeColor: "#f06500",
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata: Metadata = {
-  title: "Hit The Switch | Reliable Melbourne Electricians | Same-Day Service",
-  description: "Looking for a reliable electrician in Melbourne? Hit The Switch offers 24/7 emergency repairs, switchboard upgrades, and free quotes. Serving East & South-Eastern suburbs.",
-  keywords: ["Electrician Melbourne", "Emergency Electrician", "24/7 Electrician", "Switchboard Upgrade Melbourne", "Electrical Services"],
-  authors: [{ name: "Hit The Switch" }],
+  title: "Gastech Plumbing & Heating | Expert Keighley Plumbers | 24/7 Emergency Service",
+  description: "Need a reliable plumber in Keighley? Gastech Plumbing & Heating offers 24/7 emergency repairs, blocked drain clearing, and boiler services. Fast response across West Yorkshire.",
+  keywords: ["Plumber Keighley", "Emergency Plumber Keighley", "Blocked Drains Keighley", "Boiler Repair Keighley", "Plumbing Services West Yorkshire"],
+  authors: [{ name: "Gastech Plumbing & Heating" }],
   openGraph: {
-    title: "Hit The Switch | Reliable Melbourne Electricians",
-    description: "24/7 Emergency electrical services in Melbourne's East & South-Eastern suburbs. Free quotes & same-day service.",
-    url: "https://hittheswitch.com.au",
-    siteName: "Hit The Switch",
+    title: "Gastech Plumbing & Heating | Reliable Keighley Plumbers",
+    description: "24/7 Emergency plumbing services in Keighley & surrounding areas. Free quotes & same-day service.",
+    url: "https://gastechplumbing.co.uk",
+    siteName: "Gastech Plumbing & Heating",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Hit The Switch Melbourne Electricians",
+        alt: "Gastech Plumbing & Heating Keighley",
       },
     ],
-    locale: "en_AU",
+    locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hit The Switch | Melbourne Electricians",
-    description: "Reliable 24/7 electrical services across Melbourne. Same-day repairs & switchboard upgrades.",
+    title: "Gastech Plumbing & Heating | Keighley Plumbers",
+    description: "Reliable 24/7 plumbing services across Keighley. Same-day repairs & emergency support.",
     images: ["/og-image.jpg"],
   },
   alternates: {
-    canonical: "https://hittheswitch.com.au",
+    canonical: "https://gastechplumbing.co.uk",
   },
   robots: {
     index: true,

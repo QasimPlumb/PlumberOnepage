@@ -5,6 +5,7 @@ import { QuoteForm } from '@/components/sections/QuoteForm';
 import { PainPoints } from '@/components/sections/PainPoints';
 import { Services } from '@/components/sections/Services';
 import { FeatureSection } from '@/components/sections/FeatureSection';
+import { HowItWorks } from '@/components/sections/HowItWorks';
 import { Gallery } from '@/components/sections/Gallery';
 import { Reviews } from '@/components/sections/Reviews';
 import { FAQ } from '@/components/sections/FAQ';
@@ -19,59 +20,52 @@ export default function Home() {
 
       <main>
         {/* We need to pass QuoteForm to Hero or manually place it since we changed the layout slightly for modularity */}
-        <section className="relative bg-gradient-to-br from-gray-800 to-gray-900 text-white overflow-hidden">
-          <Hero />
-          {/* Re-injecting QuoteForm into Hero grid layout locally on page for better control */}
-          <div className="absolute top-0 right-0 w-full h-full pointer-events-none">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-end">
-              <div className="w-full lg:w-1/2 pointer-events-auto hidden lg:block py-20">
-                <QuoteForm />
-              </div>
+        <div id="quote">
+          <Hero>
+            <div className="w-full max-w-lg">
+              <QuoteForm />
             </div>
-          </div>
-          {/* Mobile Quote Form */}
-          <div className="lg:hidden px-4 pb-20 relative z-10">
-            <QuoteForm />
-          </div>
-        </section>
+          </Hero>
+        </div>
 
         <PainPoints />
 
         {/* Offer Stack - Keeping it here for now or can move to its own component */}
         <section className="py-20 bg-white">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
                 What You Get When You Book With Us
+
               </h2>
               <p className="text-xl text-gray-600">
-                Not just an electrician. A complete, worry-free service.
+                More than a plumber. A fast, reliable <b>Keighley plumbing service</b> you can trust.
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 lg:p-12 rounded-2xl border-2 border-[#7FD13B]">
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 lg:p-12 rounded-2xl border-2 border-primary">
               <div className="grid md:grid-cols-2 gap-6">
                 {[
-                  "FREE no-obligation quote within 48 hours",
-                  "Same-day service available (when booked early)",
-                  "Fixed pricing — no hidden fees or surprises",
-                  "15+ years master electrician experience",
-                  "Full year warranty on all parts supplied",
-                  "Lifetime workmanship guarantee",
+                  " FREE no-obligation quote within 48 hours",
+                  "Same-day plumbing service available",
+                  " Fixed pricing — no hidden plumbing fees",
+                  " 15+ years professional plumbing experience",
+                  "Full-year warranty on parts supplied",
+                  " Lifetime workmanship guarantee",
                   "We clean up and leave your home spotless",
-                  "24/7 emergency service available",
-                  "Fully licensed, insured & certified",
-                  "Friendly service that respects your home"
+                  " 24/7 emergency plumbing service",
+                  "Fully licensed, insured & certified plumbers",
+                  " Friendly local plumbers who respect your home"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-[#7FD13B] flex-shrink-0 mt-1" />
+                    <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <span className="text-gray-900 font-medium text-lg">{item}</span>
                   </div>
                 ))}
               </div>
 
               <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#quote" className="bg-[#7FD13B] hover:bg-[#6BC12B] text-white px-8 py-4 rounded-xl font-bold text-lg transition inline-flex items-center justify-center gap-2 shadow-lg">
+                <a href="#quote" className="bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-xl font-bold text-lg transition inline-flex items-center justify-center gap-2 shadow-lg">
                   Book Your FREE Quote
                   <span className="text-xl">→</span>
                 </a>
@@ -83,6 +77,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+
+        <HowItWorks />
 
         <FeatureSection />
 
@@ -96,26 +93,25 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                <MapPin className="inline w-10 h-10 text-[#7FD13B] mb-2" />
-                {" "}Areas We Service
+                <MapPin className="inline w-10 h-10 text-primary mb-2" />
+                Areas We Serve in and Around Keighley
               </h2>
               <p className="text-xl text-gray-600">
-                Proudly serving Melbourne's East & South-Eastern suburbs
+                Providing <b>reliable plumbing services across Keighley and nearby West Yorkshire areas.</b>
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-lg">
               <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 {[
-                  "Melbourne CBD", "Box Hill", "Glen Waverley", "Doncaster", "Camberwell",
-                  "Hawthorn", "Kew", "Balwyn", "Mont Albert", "Surrey Hills",
-                  "Blackburn", "Mitcham", "Ringwood", "Croydon", "Bayswater",
-                  "Chadstone", "Oakleigh", "Clayton", "Dandenong", "Noble Park",
-                  "Springvale", "Berwick", "Narre Warren", "Pakenham", "Cranbourne",
-                  "Belgrave", "Ferntree Gully", "Rowville", "Wantirna", "Boronia"
+                  "Keighley ", "Utley", "Riddlesden", "Stockbridge", "Thwaites Brow",
+                  "Ingrow", "East Morton", "Cross Roads", "Haworth", "Oxenhope",
+                  "Oakworth", "Stanbury", "Steeton", "Silsden", "Kildwick",
+                  "Cononley", "Bingley", "Harden", "Shipley", "Saltaire",
+                  "Baildon", "Ilkley", "Addingham", "Skipton"
                 ].map((suburb, index) => (
                   <div key={index} className="flex items-center gap-2 text-gray-700">
-                    <CheckCircle className="w-4 h-4 text-[#7FD13B] flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
                     <span>{suburb}</span>
                   </div>
                 ))}
@@ -126,6 +122,6 @@ export default function Home() {
       </main>
 
       <Footer />
-    </div>
+    </div >
   );
 }

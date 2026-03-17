@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -47,6 +48,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  icons: {
+    icon: "/short.png",
+    shortcut: "/short.png",
+    apple: "/short.png",
+  },
 };
 
 export default function RootLayout({
@@ -56,7 +62,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="font-sans antialiased selection:bg-[#435CFF]/30">{children}</body>
+      <body className="font-sans antialiased selection:bg-[#435CFF]/30">
+        {children}
+        <WhatsAppButton />
+      </body>
     </html>
   );
 }

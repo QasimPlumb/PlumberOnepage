@@ -11,7 +11,6 @@ export function QuoteForm() {
 
   // Postcode Lookup State
   const [postcode, setPostcode] = useState('');
-  const [suggestions, setSuggestions] = useState<{ id: string; address: string }[]>([]);
   const [isLoadingAddress, setIsLoadingAddress] = useState(false);
   const [selectedAddress, setSelectedAddress] = useState('');
 
@@ -23,58 +22,35 @@ export function QuoteForm() {
 
     setIsLoadingAddress(true);
     setError(null);
-    setSuggestions([]);
 
     try {
-      const API_KEY = 'ql1GIVd4dU2YJpYPHV0PMQ50974';
-      // Step 1: Search for suggestions
-      const response = await fetch(`https://api.getaddress.io/autocomplete/${postcode.replace(/\s+/g, '')}?api-key=${API_KEY}`);
+      // Using postcodes.io (Free & No API Key required)
+      const response = await fetch(`https://api.postcodes.io/postcodes/${postcode.replace(/\s+/g, '')}`);
 
       if (!response.ok) {
-        console.error('API Error:', response.status, response.statusText);
-        throw new Error('Invalid postcode or service unavailable');
+        throw new Error('Invalid postcode');
       }
 
-      const data = await response.json();
-      setSuggestions(data.suggestions || []);
+      const { result } = await response.json();
 
-      if (!data.suggestions || data.suggestions.length === 0) {
-        setError('No addresses found for this postcode.');
-      }
+      // Auto-fill address field with Town and Parish
+      const city = result.admin_district || '';
+      const area = result.parish || result.admin_ward || '';
+      const fullLocation = [area, city].filter(Boolean).join(', ');
+
+      setSelectedAddress(` ${fullLocation}`);
+      // Set focus to the textarea so they can type house number
+      setTimeout(() => {
+        const textarea = document.querySelector('textarea[name="manual_address"]') as HTMLTextAreaElement;
+        if (textarea) {
+          textarea.focus();
+          textarea.setSelectionRange(0, 0);
+        }
+      }, 100);
+
     } catch (err) {
       console.error('Lookup failed:', err);
-      setError('Could not find address. Please enter it manually.');
-    } finally {
-      setIsLoadingAddress(false);
-    }
-  };
-
-  const handleAddressSelect = async (id: string) => {
-    if (!id) return;
-
-    setIsLoadingAddress(true);
-    try {
-      const API_KEY = 'ql1GIVd4dU2YJpYPHV0PMQ50974';
-      // Step 2: Get full address using the ID (as per user's documentation quote)
-      const response = await fetch(`https://api.getaddress.io/get/${id}?api-key=${API_KEY}`);
-
-      if (!response.ok) throw new Error('Could not retrieve full address');
-
-      const data = await response.json();
-      // Combine address lines into a single string for the form
-      const fullAddress = [
-        data.line_1,
-        data.line_2,
-        data.line_3,
-        data.line_4,
-        data.locality,
-        data.town_or_city,
-        data.postcode
-      ].filter(Boolean).join(', ');
-
-      setSelectedAddress(fullAddress);
-    } catch (err) {
-      setError('Error fetching full address. Please enter manually.');
+      setError('Postcode not found. Please enter address manually.');
     } finally {
       setIsLoadingAddress(false);
     }
@@ -190,30 +166,15 @@ export function QuoteForm() {
           </button>
         </div>
 
-        {suggestions.length > 0 && (
-          <select
-            className="w-full px-4 py-3 rounded-lg border-2 border-primary bg-primary/5 focus:ring-2 focus:ring-primary/20 outline-none transition"
-            onChange={(e) => handleAddressSelect(e.target.value)}
-            required
-          >
-            <option value="">Select your address...</option>
-            {suggestions.map((item, i) => (
-              <option key={i} value={item.id}>{item.address}</option>
-            ))}
-          </select>
-        )}
-
-        {(selectedAddress || suggestions.length === 0) && (
-          <textarea
-            name="manual_address"
-            placeholder="Address/House Number *"
-            value={selectedAddress}
-            onChange={(e) => setSelectedAddress(e.target.value)}
-            className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition min-h-[80px]"
-            required
-            disabled={isSubmitting}
-          />
-        )}
+        <textarea
+          name="manual_address"
+          placeholder="House Number & Street *"
+          value={selectedAddress}
+          onChange={(e) => setSelectedAddress(e.target.value)}
+          className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition min-h-[80px]"
+          required
+          disabled={isSubmitting}
+        />
 
         <select
           name="service"

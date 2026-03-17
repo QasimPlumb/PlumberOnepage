@@ -4,7 +4,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
-    const { name, phone, email, suburb, postcode, service } = await request.json();
+    const { name, phone, email, address, postcode, service } = await request.json();
 
     if (!name || !phone || !service) {
       return new Response(JSON.stringify({ error: 'Missing required fields' }), {
@@ -38,7 +38,7 @@ export async function POST(request: Request) {
             </tr>
             <tr>
               <td style="padding: 8px 0; font-weight: bold;">Location:</td>
-              <td style="padding: 8px 0;">${suburb}${postcode ? `, ${postcode}` : ''}</td>
+              <td style="padding: 8px 0;">${address}${postcode ? ` (${postcode})` : ''}</td>
             </tr>
             <tr>
               <td style="padding: 8px 0; font-weight: bold;">Service Needed:</td>

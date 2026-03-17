@@ -78,7 +78,7 @@ export function Reviews() {
                 <Star key={i} className="w-6 h-6 fill-accent text-accent" />
               ))}
             </div>
-            <span className="text-2xl font-bold text-gray-900">5.0/5</span>
+            <span className="text-2xl font-bold text-gray-900">5.0</span>
             <span className="text-gray-600 border-b border-dotted border-gray-400 group-hover:text-primary group-hover:border-primary transition">
               from 184+ Google reviews
             </span>

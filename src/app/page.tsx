@@ -22,9 +22,9 @@ export default function Home() {
 
       <main>
         {/* We need to pass QuoteForm to Hero or manually place it since we changed the layout slightly for modularity */}
-        <div id="quote">
+        <div>
           <Hero>
-            <div className="w-full max-w-lg">
+            <div className="w-full max-w-lg px-0 scroll-mt-24" id="quote">
               <QuoteForm />
             </div>
           </Hero>
@@ -33,14 +33,14 @@ export default function Home() {
         <PainPoints />
 
         {/* Offer Stack - Keeping it here for now or can move to its own component */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        <section className="py-8 md:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-2 lg:px-8">
+            <div className="text-center mb-8 md:mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
                 What You Get When You Book With Us
 
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-sm md:text-xl text-gray-600">
                 More than a plumber. A fast, reliable <b>plumbing service</b> you can trust.
               </p>
             </div>
@@ -91,20 +91,20 @@ export default function Home() {
         <FAQ />
 
         {/* Areas Service Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-8 md:py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
                 <MapPin className="inline w-10 h-10 text-primary mb-2" />
                 Areas We Serve in and Around Keighley
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-sm md:text-xl text-gray-600">
                 Providing <b>reliable plumbing services across Keighley and nearby West Yorkshire areas.</b>
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <div className="grid sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 {[
                   "Keighley ", "Utley", "Riddlesden", "Stockbridge", "Thwaites Brow",
                   "Ingrow", "East Morton", "Cross Roads", "Yeadon", "Otley", "Menston", "Guiseley", "Horsforth", "Pudsey", "Leeds", "Haworth", "Oxenhope",

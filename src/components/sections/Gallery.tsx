@@ -39,13 +39,13 @@ const galleryItems = [
 
 export function Gallery() {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-8 md:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-8 md:mb-16 space-y-4">
 
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">Our Latest Plumbing Projects</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-5xl font-extrabold text-gray-900">Our Latest Plumbing Projects</h2>
+          <p className="text-sm md:text-xl text-gray-600 max-w-2xl mx-auto">
             See why <b>Keighley homeowners trust our plumbing services.</b> Quality work that keeps your home running smoothly.
           </p>
         </div>

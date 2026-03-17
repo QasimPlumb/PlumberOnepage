@@ -4,7 +4,7 @@ import { ImageWithFallback } from '@/components/ui/ImageWithFallback';
 export function FeatureSection() {
   return (
     <section className="py-20 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           {/* Image Side */}
           <div className="w-full lg:w-1/2 relative">
@@ -23,13 +23,12 @@ export function FeatureSection() {
           {/* Text Side */}
           <div className="w-full lg:w-1/2 space-y-8">
             <div className="space-y-4">
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 leading-tight">
+              <h2 className="text-2xl md:text-5xl font-bold text-gray-900 leading-tight">
                 Top-Tier Plumbing Expertise for Every Property
               </h2>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-sm md:text-xl text-gray-600 leading-relaxed">
                 Whether it’s a <b>burst pipe repair</b>,  blocked drain, or general plumbing issue, our experienced plumbers
                 deliver reliable solutions for homes and businesses in <b>Keighley</b>. We don’t just fix plumbing problems — we make sure your system runs safely, efficiently, and reliably.
-
               </p>
             </div>
 

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { CheckCircle2, Loader2 } from 'lucide-react';
+import { CheckCircle2, Loader2, Search } from 'lucide-react';
 
 export function QuoteForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,7 +29,7 @@ export function QuoteForm() {
       const API_KEY = 'ql1GIVd4dU2YJpYPHV0PMQ50974';
       // Step 1: Search for suggestions
       const response = await fetch(`https://api.getaddress.io/autocomplete/${postcode.replace(/\s+/g, '')}?api-key=${API_KEY}`);
-      
+
       if (!response.ok) {
         console.error('API Error:', response.status, response.statusText);
         throw new Error('Invalid postcode or service unavailable');
@@ -37,7 +37,7 @@ export function QuoteForm() {
 
       const data = await response.json();
       setSuggestions(data.suggestions || []);
-      
+
       if (!data.suggestions || data.suggestions.length === 0) {
         setError('No addresses found for this postcode.');
       }
@@ -51,15 +51,15 @@ export function QuoteForm() {
 
   const handleAddressSelect = async (id: string) => {
     if (!id) return;
-    
+
     setIsLoadingAddress(true);
     try {
       const API_KEY = 'ql1GIVd4dU2YJpYPHV0PMQ50974';
       // Step 2: Get full address using the ID (as per user's documentation quote)
       const response = await fetch(`https://api.getaddress.io/get/${id}?api-key=${API_KEY}`);
-      
+
       if (!response.ok) throw new Error('Could not retrieve full address');
-      
+
       const data = await response.json();
       // Combine address lines into a single string for the form
       const fullAddress = [
@@ -71,7 +71,7 @@ export function QuoteForm() {
         data.town_or_city,
         data.postcode
       ].filter(Boolean).join(', ');
-      
+
       setSelectedAddress(fullAddress);
     } catch (err) {
       setError('Error fetching full address. Please enter manually.');
@@ -118,7 +118,7 @@ export function QuoteForm() {
 
   if (isSuccess) {
     return (
-      <div className="bg-white text-gray-900 p-8 rounded-2xl shadow-2xl text-center animate-in fade-in zoom-in duration-300">
+      <div className="bg-white text-gray-900 p-5 sm:p-8 rounded-2xl shadow-2xl text-center animate-in fade-in zoom-in duration-300 w-full mx-auto">
         <div className="flex justify-center mb-4">
           <CheckCircle2 className="w-16 h-16 text-green-500" />
         </div>
@@ -137,7 +137,7 @@ export function QuoteForm() {
   }
 
   return (
-    <div className="bg-white text-gray-900 p-8 rounded-2xl shadow-2xl">
+    <div className="bg-white text-gray-900 p-4 sm:p-8 rounded-2xl shadow-2xl w-full mx-auto">
       <div className="text-center mb-6">
         <h3 className="text-2xl font-bold mb-2">Get Your FREE Quote</h3>
         <p className="text-gray-600">Takes 60 seconds. No obligation.</p>
@@ -186,7 +186,7 @@ export function QuoteForm() {
             disabled={isLoadingAddress || isSubmitting || !postcode}
             className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-3 rounded-lg border-2 border-gray-300 font-bold transition disabled:opacity-50"
           >
-            {isLoadingAddress ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Find'}
+            {isLoadingAddress ? <Loader2 className="w-5 h-5 animate-spin" /> : <Search className="w-5 h-5" />}
           </button>
         </div>
 

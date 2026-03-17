@@ -20,12 +20,12 @@ export function HowItWorks() {
   ];
 
   return (
-    <section id="process" className="py-24 bg-gray-50/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-secondary mb-4">
+    <section id="process" className="py-8 md:py-24 bg-gray-50/50 scroll-mt-24">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <h2 className="text-2xl md:text-5xl font-extrabold text-secondary mb-4">
           How We Work — <span className="text-secondary">Simple As 1-2-3</span>
         </h2>
-        <p className="text-xl text-gray-600 mb-16 max-w-2xl mx-auto">
+        <p className="text-sm md:text-xl text-gray-600 mb-16 max-w-2xl mx-auto">
           Getting reliable plumbing help in Keighley is quick and straightforward.
         </p>
 

@@ -17,13 +17,13 @@ const pains = [
 
 export function PainPoints() {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[#0D253F]">
+    <section className="py-8 md:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-2 lg:px-8">
+        <div className="text-center mb-8 md:mb-16 space-y-4">
+          <h2 className="text-2xl md:text-5xl font-extrabold text-[#0D253F]">
             Tired of Unreliable Plumbers?
           </h2>
-          <p className="text-xl text-gray-500 max-w-3xl mx-auto">
+          <p className="text-sm md:text-xl text-gray-500 max-w-3xl mx-auto">
             You're not alone. Here's what <span className="font-semibold text-gray-700">Homeowners/customers</span> say they hate about hiring plumbers:
           </p>
         </div>

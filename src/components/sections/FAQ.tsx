@@ -29,11 +29,11 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-20 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-8 md:py-20 bg-gray-50 scroll-mt-24">
+      <div className="max-w-4xl mx-auto px-6 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold  text-[#20242a] mb-4">Frequently Asked Plumbing Questions</h2>
-          <p className="text-xl text-[#20242a]">Everything you need to know about our <b>professional plumbing services</b>.</p>
+          <h2 className="text-2xl md:text-4xl font-bold  text-[#20242a] mb-4">Frequently Asked Plumbing Questions</h2>
+          <p className="text-sm md:text-xl text-[#20242a]">Everything you need to know about our <b>professional plumbing services</b>.</p>
         </div>
 
         <div className="space-y-4">

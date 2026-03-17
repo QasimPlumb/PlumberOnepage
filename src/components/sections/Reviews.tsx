@@ -61,13 +61,13 @@ export function Reviews() {
   const visibleReviews = showAll ? reviews : reviews.slice(0, 3);
 
   return (
-    <section id="reviews" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="reviews" className="py-20 bg-white scroll-mt-24">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">
             Real Reviews From Real Plumbing Customers
           </h2>
-          <a 
+          <a
             href={REVIEWS_URL}
             target="_blank"
             rel="noopener noreferrer"
@@ -78,7 +78,7 @@ export function Reviews() {
                 <Star key={i} className="w-6 h-6 fill-accent text-accent" />
               ))}
             </div>
-            <span className="text-2xl font-bold text-gray-900">4.9/5</span>
+            <span className="text-2xl font-bold text-gray-900">5.0/5</span>
             <span className="text-gray-600 border-b border-dotted border-gray-400 group-hover:text-primary group-hover:border-primary transition">
               from 184+ Google reviews
             </span>
@@ -127,7 +127,7 @@ export function Reviews() {
               <span className="flex items-center gap-2">Show more reviews <span className="text-xl">↓</span></span>
             )}
           </button>
-          
+
           <div className="h-6 w-px bg-gray-300 hidden sm:block"></div>
 
           <a

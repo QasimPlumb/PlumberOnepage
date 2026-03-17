@@ -65,11 +65,11 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-8 md:py-20 bg-gray-50 scroll-mt-24">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Plumbing Services</h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Our Plumbing Services</h2>
+          <p className="text-sm md:text-xl text-gray-600 max-w-4xl mx-auto">
             From emergency plumbing repairs to full installations, <b>Keighley plumbers you can rely on</b>
           </p>
         </div>

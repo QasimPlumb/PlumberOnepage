@@ -6,7 +6,7 @@ const logo = '/logofooter.png';
 export function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-12 border-t border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="mb-4">
@@ -25,6 +25,7 @@ export function Footer() {
             </div>
             <div className="flex gap-4 items-center">
               <Image src="/certificate/wras.jpeg" alt="WRAS Approved" width={80} height={40} className="rounded bg-white p-1" />
+              <Image src="/certificate/gasafe.jpeg" alt="Gas Safe" width={40} height={40} className="rounded bg-white " />
             </div>
           </div>
 
@@ -82,7 +83,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+      <div className="max-w-7xl mx-auto px-6 border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-400">
         <p> Keighley Plumbing & Heating Services is a trading name of All Home Repairs.  &copy; {new Date().getFullYear()} Gastech Plumbing & Heating 24/7. All rights reserved.</p>
 
 

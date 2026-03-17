@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { CheckCircle2, Loader2, Search } from 'lucide-react';
+import { CheckCircle2, Loader2 } from 'lucide-react';
 
 export function QuoteForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -10,15 +10,13 @@ export function QuoteForm() {
   const [error, setError] = useState<string | null>(null);
 
   // Postcode Lookup State
+  const [houseNumber, setHouseNumber] = useState('');
   const [postcode, setPostcode] = useState('');
   const [isLoadingAddress, setIsLoadingAddress] = useState(false);
   const [selectedAddress, setSelectedAddress] = useState('');
 
   const handlePostcodeLookup = async () => {
-    if (!postcode) {
-      setError('Please enter a postcode first');
-      return;
-    }
+    if (!postcode) return;
 
     setIsLoadingAddress(true);
     setError(null);
@@ -32,21 +30,17 @@ export function QuoteForm() {
       }
 
       const { result } = await response.json();
-
-      // Auto-fill address field with Town and Parish
+      
+      // Auto-fill address field with House Number, Town and Parish
       const city = result.admin_district || '';
       const area = result.parish || result.admin_ward || '';
-      const fullLocation = [area, city].filter(Boolean).join(', ');
+      const locationParts = [area, city].filter(Boolean).join(', ');
+      
+      const fullAddress = houseNumber 
+        ? `${houseNumber}, ${locationParts}`
+        : locationParts;
 
-      setSelectedAddress(` ${fullLocation}`);
-      // Set focus to the textarea so they can type house number
-      setTimeout(() => {
-        const textarea = document.querySelector('textarea[name="manual_address"]') as HTMLTextAreaElement;
-        if (textarea) {
-          textarea.focus();
-          textarea.setSelectionRange(0, 0);
-        }
-      }, 100);
+      setSelectedAddress(fullAddress);
 
     } catch (err) {
       console.error('Lookup failed:', err);
@@ -145,25 +139,35 @@ export function QuoteForm() {
           disabled={isSubmitting}
         />
 
-        <div className="flex gap-2">
+        <div className="grid grid-cols-2 gap-4">
           <input
-            name="postcode"
+            name="house_number"
             type="text"
-            placeholder="Postcode *"
-            value={postcode}
-            onChange={(e) => setPostcode(e.target.value.toUpperCase())}
-            className="flex-1 px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition uppercase"
+            placeholder="House Number *"
+            value={houseNumber}
+            onChange={(e) => setHouseNumber(e.target.value)}
+            className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition"
             required
             disabled={isSubmitting}
           />
-          <button
-            type="button"
-            onClick={handlePostcodeLookup}
-            disabled={isLoadingAddress || isSubmitting || !postcode}
-            className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-3 rounded-lg border-2 border-gray-300 font-bold transition disabled:opacity-50"
-          >
-            {isLoadingAddress ? <Loader2 className="w-5 h-5 animate-spin" /> : <Search className="w-5 h-5" />}
-          </button>
+          <div className="relative">
+            <input
+              name="postcode"
+              type="text"
+              placeholder="Postcode *"
+              value={postcode}
+              onChange={(e) => setPostcode(e.target.value.toUpperCase())}
+              onBlur={handlePostcodeLookup}
+              className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition uppercase"
+              required
+              disabled={isSubmitting}
+            />
+            {isLoadingAddress && (
+              <div className="absolute right-3 top-1/2 -translate-y-1/2">
+                <Loader2 className="w-5 h-5 animate-spin text-primary" />
+              </div>
+            )}
+          </div>
         </div>
 
         <textarea

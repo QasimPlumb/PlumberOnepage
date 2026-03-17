@@ -15,7 +15,7 @@ export async function POST(request: Request) {
 
     const { data, error } = await resend.emails.send({
       from: 'Plumbing Enquiry <onboarding@resend.dev>',
-      to: ['info@emergencyplumbers247.uk'],
+      to: [process.env.RECIPIENT_EMAIL || 'info@emergencyplumbers247.uk'],
       replyTo: email || undefined,
       subject: `New Plumbing Enquiry from ${name}`,
       html: `

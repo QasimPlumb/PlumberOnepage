@@ -84,7 +84,7 @@ export function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-        <p> Keighley Plumbing & Heating Services is a trading name of All Home Repairs.  &copy; {new Date().getFullYear()} Gastech Plumbing & Heating 24/7. All rights reserved.</p>
+        <p>Keighley Plumbing & Heating Services is a trading name of Gastech Plumbing & Heating 24/7. &copy; {new Date().getFullYear()} All rights reserved.</p>
 
 
       </div>

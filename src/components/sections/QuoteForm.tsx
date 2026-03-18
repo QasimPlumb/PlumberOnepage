@@ -9,46 +9,6 @@ export function QuoteForm() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Postcode Lookup State
-  const [houseNumber, setHouseNumber] = useState('');
-  const [postcode, setPostcode] = useState('');
-  const [isLoadingAddress, setIsLoadingAddress] = useState(false);
-  const [selectedAddress, setSelectedAddress] = useState('');
-
-  const handlePostcodeLookup = async () => {
-    if (!postcode) return;
-
-    setIsLoadingAddress(true);
-    setError(null);
-
-    try {
-      // Using postcodes.io (Free & No API Key required)
-      const response = await fetch(`https://api.postcodes.io/postcodes/${postcode.replace(/\s+/g, '')}`);
-
-      if (!response.ok) {
-        throw new Error('Invalid postcode');
-      }
-
-      const { result } = await response.json();
-
-      // Auto-fill address field with House Number, Town and Parish
-      const city = result.admin_district || '';
-      const area = result.parish || result.admin_ward || '';
-      const locationParts = [area, city].filter(Boolean).join(', ');
-
-      const fullAddress = houseNumber
-        ? `${houseNumber}, ${locationParts}`
-        : locationParts;
-
-      setSelectedAddress(fullAddress);
-
-    } catch (err) {
-      console.error('Lookup failed:', err);
-      setError('Postcode not found. Please enter address manually.');
-    } finally {
-      setIsLoadingAddress(false);
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -60,8 +20,8 @@ export function QuoteForm() {
       name: formData.get('name'),
       phone: formData.get('phone'),
       email: formData.get('email'),
-      address: selectedAddress || formData.get('manual_address'),
-      postcode: postcode,
+      address: formData.get('address'),
+      postcode: formData.get('postcode'),
       service: formData.get('service'),
     };
 
@@ -139,46 +99,24 @@ export function QuoteForm() {
           disabled={isSubmitting}
         />
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <input
-            name="house_number"
+            name="postcode"
             type="text"
-            placeholder="House Number *"
-            value={houseNumber}
-            onChange={(e) => setHouseNumber(e.target.value)}
+            placeholder="Postcode *"
+            className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition uppercase"
+            required
+            disabled={isSubmitting}
+          />
+          <input
+            name="address"
+            type="text"
+            placeholder="House Number & Street *"
             className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition"
             required
             disabled={isSubmitting}
           />
-          <div className="relative">
-            <input
-              name="postcode"
-              type="text"
-              placeholder="Postcode *"
-              value={postcode}
-              onChange={(e) => setPostcode(e.target.value.toUpperCase())}
-              onBlur={handlePostcodeLookup}
-              className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition uppercase"
-              required
-              disabled={isSubmitting}
-            />
-            {isLoadingAddress && (
-              <div className="absolute right-3 top-1/2 -translate-y-1/2">
-                <Loader2 className="w-5 h-5 animate-spin text-primary" />
-              </div>
-            )}
-          </div>
         </div>
-
-        <textarea
-          name="manual_address"
-          placeholder="House Number & Street *"
-          value={selectedAddress}
-          onChange={(e) => setSelectedAddress(e.target.value)}
-          className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition min-h-[40px]"
-          required
-          disabled={isSubmitting}
-        />
 
         <select
           name="service"

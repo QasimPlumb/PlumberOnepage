@@ -8,7 +8,7 @@ const services = [
   }, {
     icon: <Flame className="w-10 h-10 text-primary" />,
     title: "Boiler Servicing, Repairs & Installation",
-    description: "Professional boiler servicing (starting from £69), fast repairs, and new installations."
+    description: "Professional boiler servicing (starting from £79), fast repairs, and new installations."
   },
   {
     icon: <Waves className="w-10 h-10 text-primary" />,

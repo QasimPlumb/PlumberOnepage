@@ -25,11 +25,11 @@ export function Hero({ children }: { children?: React.ReactNode }) {
             <div className="flex flex-wrap gap-3 items-center">
               <div className="flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full border border-accent">
                 <Flame className="w-5 h-5 text-accent animate-pulse flex-shrink-0" />
-                <span className="font-bold text-accent text-sm sm:text-base">Boiler Servicing from £69</span>
+                <span className="font-bold text-accent text-sm sm:text-base">Boiler Servicing from £79</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Star className="w-5 h-5 text-accent fill-accent flex-shrink-0" />
-                <span className="font-bold text-sm sm:text-base">5.0 Plumbers and heating engineers</span>
+                <span className="font-bold text-sm sm:text-base">5.0 Google Verified Review</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
                 <Shield className="w-5 h-5 text-primary flex-shrink-0" />
@@ -48,8 +48,7 @@ export function Hero({ children }: { children?: React.ReactNode }) {
 
             {/* Subheadline That Reduces Friction */}
             <p className="text-sm sm:text-xl text-gray-200">
-              Book a free quote in under a minute. Our local emergency plumbers in Keighley respond fast to burst pipes, leaks, boiler repairs and installation, and blocked drains across nearby areas. We offer planned and reactive maintenance to suit your requirements
-            </p>
+              Book a free quote in under a minute. Our local emergency plumbers and gas engineers in Keighley respond fast to burst pipes, leaks, boiler repairs and installation, blocked drains across nearby areas. We offer planned and reactive maintenance to suit your requirements.            </p>
 
             {/* Risk Reversal - Prominent */}
             <div className="bg-primary/20 border-2 border-primary p-6 rounded-xl">

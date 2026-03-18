@@ -30,13 +30,13 @@ export function QuoteForm() {
       }
 
       const { result } = await response.json();
-      
+
       // Auto-fill address field with House Number, Town and Parish
       const city = result.admin_district || '';
       const area = result.parish || result.admin_ward || '';
       const locationParts = [area, city].filter(Boolean).join(', ');
-      
-      const fullAddress = houseNumber 
+
+      const fullAddress = houseNumber
         ? `${houseNumber}, ${locationParts}`
         : locationParts;
 
@@ -175,7 +175,7 @@ export function QuoteForm() {
           placeholder="House Number & Street *"
           value={selectedAddress}
           onChange={(e) => setSelectedAddress(e.target.value)}
-          className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition min-h-[80px]"
+          className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition min-h-[40px]"
           required
           disabled={isSubmitting}
         />

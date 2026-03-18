@@ -110,7 +110,7 @@ export default function Home() {
                   "Ingrow", "East Morton", "Cross Roads", "Yeadon", "Otley", "Menston", "Guiseley", "Horsforth", "Pudsey", "Leeds", "Haworth", "Oxenhope",
                   "Oakworth", "Stanbury", "Steeton", "Cullingworth", "Harden", "Denholme", "Halifax", "Silsden", "Kildwick",
                   "Cononley", "Bingley", "Harden", "Shipley", "Saltaire",
-                  "Baildon", "Ilkley", "Addingham", "Skipton"
+                  "Baildon", "Ilkley", "Addingham", "Cowling", "Skipton"
                 ].map((suburb, index) => (
                   <div key={index} className="flex items-center gap-2 text-gray-700">
                     <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
